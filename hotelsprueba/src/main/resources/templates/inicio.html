@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title> View </title>
+    <title> Main </title>
  
     <style>
         * {
@@ -83,31 +83,38 @@
 <body>
      <div id="box">
      
-     <p id="line">⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑</p>
-        
-        <p> Ingrese el nombre de un hotel para consultar su información</p>
+      <p id="line">⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑</p>
+      
+      <p> Ingrese el nombre de un hotel para consultar su información</p>
         <h2 th:if="${error != NULL}" th:text="${error}" class="text-error"/>
-        
         
         <form method="post" th:action="@{/hotels/info}" th:object="${search}">
         
         	<input type="text" th:field="*{nombre}" placeholder="Hotel a consultar" th:errorclass="input-error"/>
         	
-        	<div class="text-error" th:if="${#fields.hasErrors('nombre')}"> 
-        	<p> 
-        	Error en el nombre 
-        	</p>
-        	<ul>
-        		<li th:each="error: ${#fields.errors('nombre')}" th:text ="${error}"/>
-        	</ul>
-        	</div >
-        	 
+        	<div class="text-error" th:if="${#fields.hasErrors('nombre')}">
+        		<p> 
+        			Error en Nombre
+        		</p>
+        		
+        		<ul>
+        			<li th:each="error : ${#fields.errors('nombre')}" th:text="${error}"/>
+        		</ul>
+        	</div>
+        	
         	<input type="submit"/>
         </form> 
         
         <p id="line">⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑</p>
         
-       
+        <p> Hoteles disponibles </p>
+         <div class="badges">
+        	<span th:each="nombre : ${info.nombres}" th:text="${nombre}"/>
+        </div>
+        
+        <p id="line">⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑</p>
+ 
+        
      </div>
 </body>
 </html>

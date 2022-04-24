@@ -31,27 +31,25 @@ public class HotelController {
 	@Autowired
 	private HotelService hotelService;
 	
-	
-
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String getMainPage(Model model) {
+	public String getInitPage(Model model) {
 			
 			List<String> nombres = hotelService.getAllNames();
 			
 			MainResponseDTO responses = new MainResponseDTO(nombres);
-			
-			model.addAttribute("search", new HotelSearchDTO(""));
 			model.addAttribute("info", responses);
 			
+			model.addAttribute("search", new HotelSearchDTO(""));
 			
-		return "main";
+			
+		return "inicio";
 	}
 	
 	@PostMapping("/info")
 	private String requestHotelPage(@ModelAttribute(name = "search") @Valid HotelSearchDTO search, BindingResult result, Model model) {
 		
 		if(result.hasErrors()) {
-			return "maincopy";
+			return "main";
 		}
 		
 		String nombre = search.getNombre();
@@ -59,10 +57,9 @@ public class HotelController {
 		
 		if(foundH == null) {
 			model.addAttribute("error", "Hotel no encontrado");
-			return "maincopy";
+			return "main";
 		}
-		
-		
+	
 		HotelResponseDTO response = new HotelResponseDTO(foundH.getCodigo(), search.getNombre(), foundH.getDireccion(), foundH.getTelefono(), foundH.getCategoria(), foundH.getHabitaciones());
 		
 		model.addAttribute("info", response);
@@ -70,7 +67,7 @@ public class HotelController {
 		return "info";
 	}
 	
-	@GetMapping("info/add")
+	@GetMapping("/info/add")
 	public String getAddPage(Model model) {
 		model.addAttribute("info", new HotelAddDTO("", "", "", "", 0, 0));
 		return "add_hotel";

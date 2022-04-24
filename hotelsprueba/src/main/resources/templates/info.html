@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title> Main </title>
+    <title> Request </title>
  
     <style>
         * {
@@ -71,27 +71,27 @@
      <p id="line">⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑</p>
        
        <p th:attr="class=${info.isCodeValid()} ? '' : 'error'">
-       Codigo: <span th:unless="${info.isCodeValid()}"> Codigo no disponible </span>
+       Codigo: <span th:unless="${info.isCodeValid()}"> Codigo no valido </span>
        			<span  th:if="${info.isCodeValid()}" th:text="${info.codigo}"/ >
        </p>
        <p th:attr="class=${info.isNameValid()} ? '' : 'error'">
-       Nombre: <span th:unless="${info.isNameValid()}"> Nombre no disponible </span>
+       Nombre: <span th:unless="${info.isNameValid()}"> Nombre no valido </span>
        			<span  th:if="${info.isNameValid()}" th:text="${info.nombre}"/ >
        </p>
        <p th:attr="class=${info.isDirValid()} ? '' : 'error'">
-       Direccion: <span th:unless="${info.isDirValid()}"> Dir no disponible </span>
+       Direccion: <span th:unless="${info.isDirValid()}"> Direccion no valida </span>
        			<span  th:if="${info.isDirValid()}" th:text="${info.direccion}"/ >
        </p>
        <p th:attr="class=${info.isTelValid()} ? '' : 'error'">
-       Telefono: <span th:unless="${info.isTelValid()}"> Tel no disponible </span>
+       Telefono: <span th:unless="${info.isTelValid()}"> Telefono no valio </span>
        			<span  th:if="${info.isTelValid()}" th:text="${info.telefono}"/ >
        </p>
        <p th:attr="class=${info.isCatValid()} ? '' : 'error'">
-       Categoria: <span th:unless="${info.isCatValid()}"> Cat no disponible </span>
+       Categoria: <span th:unless="${info.isCatValid()}"> Categoria no valida </span>
        			<span  th:if="${info.isCatValid()}" th:text="${info.categoria}"/ >
        </p>
        <p th:attr="class=${info.isHabValid()} ? '' : 'error'">
-       Habitaciones: <span th:unless="${info.isHabValid()}"> Hab no disponible </span>
+       Habitaciones: <span th:unless="${info.isHabValid()}"> Habitaciones no validas </span>
        			<span  th:if="${info.isHabValid()}" th:text="${info.habitaciones}"/ >
        </p>
        

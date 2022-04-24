@@ -72,18 +72,19 @@
 			
 		}
 		
-		
+		.input-error{
+			border-color: crimson; 
+		}
+		.text-error{
+			color: blueviolet;
+		}
     </style>
 </head>
 <body>
      <div id="box">
-       
-        <p> Hoteles disponibles </p>
-         <div class="badges">
-        	<span th:each="nom : ${main.nombres}" th:text="${nombre}"/>
-        </div>
         
-        <button th:ref="/hotels/main"> Enviar </button>
+        <h1 class="text-error"> Se ha eliminado con exito </h1>
+        
      </div>
 </body>
 </html>

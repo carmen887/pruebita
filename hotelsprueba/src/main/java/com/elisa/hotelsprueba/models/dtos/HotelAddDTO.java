@@ -20,7 +20,7 @@ public class HotelAddDTO {
 	private String direccion;
 	
 	@NotBlank
-	@Size(min=8, max=8)
+	@Size(min=9, max=9)
 	private String telefono;
 	
 	@Min(1)

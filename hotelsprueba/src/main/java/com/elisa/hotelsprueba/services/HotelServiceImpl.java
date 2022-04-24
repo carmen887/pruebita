@@ -29,7 +29,7 @@ public class HotelServiceImpl implements HotelService{
 	@Override
 	public void delete(String nombre) {
 		hotel = hotel.stream()
-				.filter(h -> !h.getCodigo().equals(nombre))
+				.filter(h -> !h.getNombre().equals(nombre))
 				.toList();
 	}
 	
@@ -38,7 +38,7 @@ public class HotelServiceImpl implements HotelService{
 		Hotel foundH = hotel.stream()
 				 .filter((h) -> h.getNombre().equals(nombre))
 				 .findAny()
-				 .orElse(new Hotel("", "", "", "", 0,0));
+				 .orElse(null);
 		
 		return foundH;
 	}

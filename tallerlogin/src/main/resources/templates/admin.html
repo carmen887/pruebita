@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title> Admin </title>
+ 
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+ 
+        body {
+            width: 100%;
+            height: 150vh;
+ 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+ 
+            background: gainsboro;
+        }
+ 
+        #box {
+            width: 100%;
+            max-width: 450px;
+            min-height: 400px;
+ 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            
+ 
+            padding: 2rem;
+            background: white;
+            
+            border-radius: 1rem;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        }
+        
+        #head {
+			color: indianred;
+			align-items: center;
+			justify-content: center;
+			font-weight: bold;
+		}
+		
+		#line{
+			color:deeppink;
+			
+		}
+		
+		.badges {
+			width: 100%;
+			padding: 1rem;
+			
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			
+			gap: 16px;
+		}
+		
+		.badges span {
+			padding: 0.5rem 1rem;
+			color:  white;
+			background: steelblue;
+			
+			border-radius: 0.5rem;
+		}
+		
+		.badgest {
+			width: 100%;
+			padding: 1rem;
+			
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			
+			gap: 16px;
+		}
+		
+		.badgest span {
+			max-width: 150px;
+			padding: 0.5rem 1rem;
+			color:  white;
+			background: steelblue;
+			
+			border-radius: 0.5rem;
+		}
+		
+		.order{
+			display: flex;
+			flex-direction: row;
+			border: none;
+			padding: 0px;
+		}
+
+    </style>
+</head>
+<body>
+     <div id="box">
+     
+       <p id="line">⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑</p>
+     
+       <h1> Bienvenido </h1>
+      
+       <p th:text="${u.nombre}" />
+      
+       <p th:text="${time}"/>
+       
+       <p id="line">⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑</p>
+      
+       <h2> Empleados </h2>
+       <div class="order">
+       <div class="badgest">
+        	<span th:each="empleadosN : ${u.empleadosN}" th:text="${empleadosN}"/>
+        </div>
+        <div class="badges">
+     	   <span th:each="empleadosF : ${u.empleadosF}" th:text="${empleadosF}"/>
+        </div>
+        <div class="badges">
+       		 <span th:each="empleadosR : ${u.empleadosR}" th:text="${empleadosR}"/>
+        </div>
+       
+       </div>
+        	 
+     </div>
+</body>
+</html>

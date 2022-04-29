@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title> Admin </title>
+ 
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+ 
+        body {
+            width: 100%;
+            height: 100vh;
+ 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+ 
+            background: gainsboro;
+        }
+ 
+        #box {
+            width: 100%;
+            max-width: 400px;
+            min-height: 400px;
+ 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            
+ 
+            padding: 2rem;
+            background: white;
+            
+            border-radius: 1rem;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        }
+        
+        #head {
+			color: indianred;
+			align-items: center;
+			justify-content: center;
+			font-weight: bold;
+		}
+		
+		#line{
+			color:deeppink;
+			
+		}
+
+    </style>
+</head>
+<body>
+     <div id="box">
+     
+       <p id="line">⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑</p>
+     
+       <h1> Bienvenido </h1>
+      
+       <p th:text="${u.nombre}" />
+      
+       <p th:text="${time}"/>
+       
+       <p id="line">⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑⭑</p>
+      
+       <h2> Empleados </h2>
+        	 <table>
+        	 <tr id="head"> 
+        	 <td th:text="'ㅤㅤNombre'"></td>
+        	 <td th:text="'Contrato'"></td>
+        	 <td th:text="'‍‍‍‍‍‎ ‏Rol'"></td >
+        	 </tr>
+        	 <tr th:each="us :${list}">
+        	 <td th:text="${us.nombre} + 'ㅤ'"></td>
+        	 <td th:text="${us.fecha} + 'ㅤㅤ'"></td>
+        	 <td th:text="${us.rol}"></td>
+        	 </tr>
+        	 </table>
+     </div>
+</body>
+</html>
